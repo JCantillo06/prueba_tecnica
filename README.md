@@ -121,27 +121,27 @@ php artisan test
 
 ```mermaid
 flowchart TD
-    A[Cliente / Accounting Team] -->|POST /api/imports (CSV File)| B[API ImportController]
-    B -->|Guarda archivo en storage & Crea registro 'pending'| C[(Imports Table)]
-    B -->|Despacha Job asíncrono| D[ProcessCsvImportJob]
-    B -->|Respuesta Inmediata 202 Accepted| A
+    A["Cliente / Accounting Team"] -->|"POST /api/imports - CSV File"| B["API ImportController"]
+    B -->|"Guarda archivo en storage y crea registro pending"| C[("Imports Table")]
+    B -->|"Despacha Job asíncrono"| D["ProcessCsvImportJob"]
+    B -->|"Respuesta Inmediata 202 Accepted"| A
 
-    D -->|Worker en Cola| E[CsvImportService]
-    E -->|Streaming fopen + fgetcsv (O(1) RAM)| F{Validación por Fila}
-    
-    F -->|Registro Válido| G[Calcula Total: qty * price * (1 - disc)]
-    G -->|Acumula Lote 1,000 filas| H[DB Bulk Insert: sale_records]
-    H --> C2[(sale_records)]
-    
-    F -->|Registro Inválido (Fecha/Precio/Qty)| I[Aísla Fila & Razón del Fallo]
-    I -->|Acumula Lote Errores| J[DB Bulk Insert: import_errors]
-    J --> C3[(import_errors)]
+    D -->|"Worker en Cola"| E["CsvImportService"]
+    E -->|"Streaming fopen + fgetcsv - O1 RAM"| F{"Validación por Fila"}
 
-    E -->|Actualiza Status: 'completed' + Totales| C
+    F -->|"Registro Válido"| G["Calcula Total: qty x price x 1-disc"]
+    G -->|"Acumula Lote 1000 filas"| H["DB Bulk Insert: sale_records"]
+    H --> C2[("sale_records")]
 
-    A -->|GET /api/reports/summary?import_id=X| K[ReportAnalyticsService]
-    K -->|Consultas Agregadas Indexadas + Cache| C2
-    K -->|Respuesta JSON / Vista Blade| L[Dashboard BI Charts]
+    F -->|"Registro Inválido - Fecha/Precio/Qty"| I["Aísla Fila y Razón del Fallo"]
+    I -->|"Acumula Lote Errores"| J["DB Bulk Insert: import_errors"]
+    J --> C3[("import_errors")]
+
+    E -->|"Actualiza Status: completed + Totales"| C
+
+    A -->|"GET /api/reports/summary"| K["ReportAnalyticsService"]
+    K -->|"Consultas Agregadas Indexadas + Cache"| C2
+    K -->|"Respuesta JSON / Vista Blade"| L["Dashboard BI Charts"]
 ```
 
 ### A. Metodología de Procesamiento de Archivos (ETL Eficiente)
