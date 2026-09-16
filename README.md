@@ -15,9 +15,10 @@ Solución de alto rendimiento desarrollada en **Laravel 10** para la ingesta mas
 
 ### Paso a Paso para Despliegue Local
 
-#### 1. Clonar o acceder al repositorio
+#### 1. Clonar y acceder al repositorio
 ```bash
-cd "c:\Users\RED5G\Desktop\Prueba tecnica"
+git clone https://github.com/JCantillo06/prueba_tecnica.git
+cd prueba_tecnica
 ```
 
 #### 2. Instalar dependencias con Composer
