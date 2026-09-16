@@ -75,30 +75,28 @@ class GenerateSampleCsvCommand extends Command
                 ['P008', 'Air Fryer XL 5.5L', 119.00],
                 ['P009', 'Robot Vacuum Cleaner', 279.50],
                 ['P010', 'Stainless Steel Cookware Set', 159.00],
-            ]
-            // ,
-            // 'Clothing & Fashion' => [
-            //     ['P011', 'Premium Cotton Hoodie', 49.99],
-            //     ['P012', 'Classic Denim Jeans', 59.90],
-            //     ['P013', 'Running Performance Shoes', 89.95],
-            //     ['P014', 'Waterproof Winter Jacket', 129.00],
-            // ],
-            // 'Beauty & Personal Care' => [
-            //     ['P015', 'Hydrating Skin Serum', 29.50],
-            //     ['P016', 'Ionic Hair Dryer 2200W', 65.00],
-            //     ['P017', 'Electric Sonic Toothbrush', 42.00],
-            // ],
-            // 'Sports & Outdoors' => [
-            //     ['P018', 'Adjustable Dumbbell Set', 189.00],
-            //     ['P019', 'Mountain Bike Helmet', 55.00],
-            //     ['P020', 'Camping Waterproof Tent 4P', 145.00],
-            // ],
+            ],
+            'Clothing & Fashion' => [
+                ['P011', 'Premium Cotton Hoodie', 49.99],
+                ['P012', 'Classic Denim Jeans', 59.90],
+                ['P013', 'Running Performance Shoes', 89.95],
+                ['P014', 'Waterproof Winter Jacket', 129.00],
+            ],
+            'Beauty & Personal Care' => [
+                ['P015', 'Hydrating Skin Serum', 29.50],
+                ['P016', 'Ionic Hair Dryer 2200W', 65.00],
+                ['P017', 'Electric Sonic Toothbrush', 42.00],
+            ],
+            'Sports & Outdoors' => [
+                ['P018', 'Adjustable Dumbbell Set', 189.00],
+                ['P019', 'Mountain Bike Helmet', 55.00],
+                ['P020', 'Camping Waterproof Tent 4P', 145.00],
+            ],
         ];
 
         $countries = [
-            'Colombia', 'México', 'Argentina'
-            // , 'Chile', 'Perú',
-            // 'España', 'Estados Unidos', 'Brasil', 'Ecuador', 'Panamá'
+            'Colombia', 'México', 'Argentina', 'Chile', 'Perú',
+            'España', 'Estados Unidos', 'Brasil', 'Ecuador', 'Panamá'
         ];
 
         $customers = [
